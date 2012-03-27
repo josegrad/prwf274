@@ -1,0 +1,92 @@
+/*
+** Copyright (C) 2012 Apple Inc.
+** All rights reserved.
+*/
+
+ if(!window.its){window.its={}
+}its.pageLoadStartTime=new Date().getTime();
+its.isDefined=function itsIsDefined(a){return typeof(a)!="undefined"
+};
+its.isDefinedNonNull=function itsIsDefinedNonNull(a){return(its.isDefined(a)&&(a!=null))
+};
+window.EXCEPTION_LOGGER_NAME="ITSExceptionHandler";
+window._itsOnErrorCallback=function windowPrivateItsOnErrorCallback(f,b,a){if(f&&(f instanceof Event)){var e=f.target;
+if(e){f="Error attempting to load a script: id="+e.id+" src="+e.src+" type="+e.type+", contents:"+e.innerHTML
+}}var d={exceptionMessage:f,exceptionUrl:b,exceptionLineNumber:a};
+var c=window._attemptedDelayedShowEarlyExceptionComposedMessage;
+if(c){d=window._attemptedDelayedShowEarlyExceptionServerDataDict
+}else{c=window._itsComposeErrorMessage(f,b,a,window.EXCEPTION_LOGGER_NAME)
+}if(window._itsOnErrorCallbackRobust){window._itsOnErrorCallbackRobust(c,d)
+}else{window._itsOnErrorCallbackFailsafe(c,d)
+}window._tryShowingErrorIndicator(c)
+};
+window._itsOnErrorCallbackRobust=function windowPrivateItsOnErrorCallbackRobust(c,b){try{if(window.ITSLogger&&ITSLogger.isLoaded){ITSLogger.logger(window.EXCEPTION_LOGGER_NAME).error(c,true,its.property("ITSLogger.FractionOfRequestsToReport.ITSExceptionHandler"),b)
+}else{if(window.ITSLogger){var a=its.property?its.property("ITSLogger.FractionOfRequestsToReport.ITSExceptionHandler"):null;
+ITSLogger.queueMessage(window.EXCEPTION_LOGGER_NAME,ITSLogger.ERROR,c,true,a,b)
+}else{window._itsOnErrorCallbackFailsafe(c,b)
+}}}catch(d){window._itsOnErrorCallbackFailsafe("Exception in exception logging: "+d.toString()+", url:"+d.sourceURL+", lineNumber:"+d.line)
+}};
+window._itsOnErrorCallbackFailsafe=function windowPrivateItsOnErrorCallbackFailsafe(b,c){if(window._attemptedDelayedShowEarlyExceptionComposedMessage==null){window._attemptedDelayedShowEarlyExceptionComposedMessage=b;
+window._attemptedDelayedShowEarlyExceptionServerDataDict=c;
+window.setTimeout(window._itsOnErrorCallback,1000)
+}else{var a=null;
+if(its.isDefined(iTunes)&&iTunes.loggingEnabled&&iTunes.log){a=function(d){iTunes.log(d)
+}
+}else{if(console&&console.log){a=function(d){console.log(d)
+}
+}}if(a&&b){a(b)
+}}};
+window._itsComposeErrorMessage=function windowPrivateItsComposeErrorMessage(e,d,a,c){var b="";
+var f="unknown (might be html-embedded script?)";
+var g="unknown";
+if(its.isDefinedNonNull(d)&&(d!="")&&(d!="undefined")){f=d
+}if(its.isDefinedNonNull(a)&&(a!="")){g=a
+}if(c){b=c+":"
+}var h=b+'{message:"'+e+'", url:"'+f+'", lineNumber:"'+g+'"}';
+return h
+};
+window._tryShowingErrorIndicator=function windowPrivateTryShowingErrorIndicator(b){var c=10;
+if(window._attemptedShowErrorIndicator==null){window._attemptedShowErrorIndicator=0
+}if(window._attemptedShowErrorIndicator<c){if(window.ITSLogger&&ITSLogger.showErrorIndicator){window._attemptedShowErrorIndicator=c+1;
+ITSLogger.showErrorIndicator(b)
+}else{if(window._attemptedShowErrorIndicator<c){window._attemptedShowErrorIndicator++;
+window.setTimeout(function a(){window._tryShowingErrorIndicator(b)
+},1000)
+}}}};
+window.onerror=window._itsOnErrorCallback;
+if(!window.ITSLogger){window.ITSLogger={};
+window.earlyLoadITSLogger=window.ITSLogger;
+ITSLogger.DEBUG=1;
+ITSLogger.INFO=2;
+ITSLogger.WARN=3;
+ITSLogger.ERROR=4;
+ITSLogger.STATS=5
+}ITSLogger.timeAtLoad=new Date().getTime();
+ITSLogger.queueMessage=function ITSLoggerQueueMessage(c,f,e,b,a,d){if(arguments.length>=3){if(!ITSLogger._queuedMessages){ITSLogger._queuedMessages=[]
+}ITSLogger._queuedMessages.push({loggerName:c,loggingThreshold:f,message:e,serverDataDict:d,mirrorToServer:b,fractionOfRequestsToReport:a})
+}};
+ITSLogger.possiblyWaitForQueueMessages=function ITSLoggerLookForQueueMessages(){var a=its.property&&its.property("itsLoggerQueueProcessingInterval");
+a=a?a:100;
+if(ITSLogger._queuedMessages&&ITSLogger._queuedMessages.length&&a>0){ITSLogger._delayedProcessQueuedMessages(a)
+}};
+ITSLogger._processQueuedMessages=function ITSLoggerProcessQueuedMessages(){ITSLogger.possiblyWaitForQueueMessages()
+};
+ITSLogger._delayedProcessQueuedMessages=function itsLoggerDelayedProcessQueuedMessages(a){window.setTimeout(ITSLogger._processQueuedMessages,a)
+};
+iTSDefer=function(){var e=[];
+var d=false;
+var c=function(g){if(!b()){g()
+}else{e.push(g)
+}};
+var a=function(){if(!d){window.preventDeferJsLoad=true
+}if(!b()){return
+}else{for(var g=0;
+g<e.length;
+g++){e[g]()
+}}};
+var b=function(){return !window.preventDeferJsLoad
+};
+var f=function(){d=true
+};
+return{register:c,execute:a,setBodyWasParsed:f}
+}();

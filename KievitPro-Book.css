@@ -1,0 +1,8 @@
+/* KievitPro-Book webfont (new-bulletproof) */ 
+@font-face {
+    font-family: 'KievitPro-Book';
+    src: url('KievitPro-Book.eot') format('embedded-opentype'),
+         url('KievitPro-Book.woff') format('woff'),
+         url('KievitPro-Book.ttf')  format('truetype'),
+         url('KievitPro-Book.svg') format('svg');
+}

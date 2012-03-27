@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Bubble Trouble by XWUZ Entertainment</title>
+	<meta name="viewport" content="width = 320,initial-scale=1,user-scalable=no" />
+	<meta name="description" content="XWUZ Bubble Trouble is a simple but beautiful bubble popping puzzle game optimized for the iPhone. Pop the same color adjecent bubbles by tapping on them. Also works on Safari and Firefox." />
+	<link rel="stylesheet" type="text/css" media="all" href="base.css" /> 
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link rel="apple-touch-icon-precomposed" href="icon.png"/>
+	<link rel="apple-touch-startup-image" href="loader.png">
+	<script type="text/javascript" src="base.js"></script>
+	<script type="text/javascript" src="bubble.js"></script>
+	<style type="text/css">
+	.iboxcontent,.ibox {
+		height: 315px;
+	}
+	</style>
+</head>
+<body>
+
+<div id="container">
+
+<div id="alertbox">
+	<div id="alertbox_flekk"></div>
+	<div id="alertbox_content"></div>
+</div>
+
+<a id="button_xwuz" onclick="return XWUZ.menu.set('about');"></a>
+
+<div id="imenu">
+	<a id="button_game" href="index.html#game" onclick="return XWUZ.menu.set('game');"><span></span>Game</a>
+	<a id="button_highscore" href="index.html#highscore" onclick="return XWUZ.menu.set('highscore');"><span></span>Highscores</a>
+	<a id="button_about" href="index.html#about" onclick="return XWUZ.menu.set('about');"><span></span>About</a>
+</div>
+
+<div class="ibox" id="stage"><div id="stage_contents">
+	<div id="ibox_game" class="iboxcontent ibc1">
+		<div id="scoretable">
+			<div><div>Score:&nbsp;</div><div id="score">0</div></div>
+			<div id="levelp"><div>Level:&nbsp;</div><div id="level">1</div></div>
+			<div id="combop"><div>Combo:&nbsp;</div><div id="combo">0</div></div>
+		</div>
+		<div id="bt_realarea">
+		</div>
+	</div>
+
+	<div id="ibox_highscore" class="iboxcontent ibc2">
+		<h3>Your current highscore is...</h3>
+		<div id="yourbest"></div>
+		<p>A score of <span class="fontostext">2500</span> is a really good one, <span class="fontostext">4000</span> is exceptional. Check back later for community highscores!</p>
+		<p>You have played so far <span id="gamesplayed" class="fontostext">0</span> matches of <span class="fontostext">XWUZ Bubble Trouble</span>.</p>
+	</div>
+	
+	<div id="ibox_about" class="iboxcontent ibc1">
+	
+		<p>This is an XWUZ game. Check out <a href="index.html.1.html" target="_top">our homepage</a> for more games.</p><p>Take a picture of yourself playing the game and send it to <a href="mailto:xwuz@tjp.hu" target="_top">xwuz@tjp.hu</a> :)</p>
+		<table width="100%" id="table_about">
+			<tr>
+				<td valign="bottom"><a href="#" target="_top"><img src="l_tjp.png" alt="tjp" /></a></td>
+				<td valign="bottom"><a href="#" target="_top"><img src="l_trn.png" alt="trn" /></a></td>
+				<td valign="bottom"><a href="#" target="_top"><img src="l_xms.png" alt="xms" /></a></td>
+				<td valign="bottom"><a href="#" target="_top"><img src="l_volll.png" alt="volll" /></a></td>
+			</tr>
+			<tr>
+				<td>Code</td>
+				<td>Design</td>
+				<td>iPhone</td>
+				<td>Big hugs</td>
+			</tr>
+		</table>
+	</div>
+</div></div>
+<div style="width:320px; height: 104px;">
+<div style="height: 48px; background: #333344; text-align: center; font-size: 16px; line-height: 48px;">
+	
+</div>
+
+</div>
+<script type="text/javascript"><!--
+XWUZ.games[XWUZ.game].init();
+//--></script>
+<script src="urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-154412-9";
+urchinTracker();
+</script>
+</div></body>
+</html>

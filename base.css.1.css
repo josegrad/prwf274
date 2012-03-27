@@ -1,0 +1,499 @@
+html {
+	background: #e3e3e3 url(background.png)  center top no-repeat;
+	padding: 0;
+	margin: 0;
+	font-family: 'Helvetica', sans-serif;
+	font-size: 15px;
+	line-height: 20px;
+	font-weight: normal;
+	color: #333;
+	min-width: 1000px;
+	max-width: 1200px;
+	height: 100%;
+}
+
+a {	color: #f00; text-decoration: none; font-weight: bold;}
+
+body {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	width: 100%;
+}
+
+.everything {
+	width: 1002px;
+	padding: 0;
+	margin: 0 auto 0 auto;
+	text-align: left;
+	position: relative;
+}
+
+.menu {
+	position: absolute;
+	left: 0;
+	top: 10px;
+	z-index:2;
+	width: 150px;
+	float: left;
+	text-align: right;
+}
+
+.content {
+	position: absolute;
+	left: 150px;
+	top: 0px;
+	padding-top: 10px;
+	z-index: 1;
+	border-left: 1px dotted #999;
+	width: 800px;
+	margin-left: 0px;
+	float: right;
+	padding-bottom: 0px;
+}
+
+
+.menu h1,
+.menu h2,
+.menu p{
+	margin-right: 20px;
+}
+
+.menu h1 {
+	background: #fff;
+	margin: 10px 0 15px 0;
+	padding: 0px;
+	float: right;
+}
+
+.menu h1 a.active {
+	background: #333;
+}
+
+.menu h1 a{
+	display: block;
+	position: relative;
+	width: 40px;
+	height: 40px;
+	font-size: 30px;
+	color: #fff;
+	overflow: hidden;
+	float: right;
+	text-indent: 500px;
+	padding: 20px;
+	background: #fff;
+}
+
+.menu h1 a:hover{
+	background: #f00;
+}
+
+.menu h1 a span {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 60px;
+	height: 60px;
+	display: block;
+	background: #f00 url(logo.png) 0px 0px  no-repeat;
+}
+
+.menu h1 a.active, 
+.menu h1 a:hover {
+	border-right: 5px solid #f00;
+	margin-right: -5px;
+}
+
+.menu h1 a.active:hover {
+	background: #f00 !important;
+}
+
+
+.menu h1 a.active:hover a span,
+.menu h1 a.active a:hover span {
+	background: url(logo.png);
+}
+
+
+.menu h1 a.active span {
+	backgound-color: none;
+	background: url(logo_alt_hover.png);
+}
+
+
+.menu h1 a:hover span {
+	background: url(logo.png) 0 0 no-repeat;
+}
+
+.menu h2 {
+	margin: 130px 0px 0 0;
+	padding: 0 20px 0 0;
+	text-shadow: 0px 1px 0px #fff;
+	font-size: 20px;
+	width: 100px;
+	font-weight: normal;
+}
+
+.menu p {
+	font-size: 13px;
+	line-height: 15px;
+	margin: 20px 0 20px 0;
+	padding: 0 20px 0 0;
+}
+
+.menu ul{
+	margin: 30px 0 20px 0;
+	padding: 0;
+	list-style-type: none;
+	list-style-position: outside;
+	width: 150px;
+
+}
+
+.menu ul ul{
+	margin: 0 0 20px 0;
+	padding: 0;
+}
+
+.menu ul li { 
+	margin: 0;
+	padding: 0;
+	list-style-type: none; 
+	width: 150px;
+	line-height: 45px;
+}
+
+.menu ul li ul li {
+	padding: 0;
+	margin: 0 10px 0 0;
+	line-height: 25px;
+}
+.menu ul li a { 
+	color: #333;
+	background: #fff;
+	padding: 10px 20px 10px 20px;
+	font-weight: bold;
+	-webkit-transition-property: background-color;
+	-webkit-transition-duration: 0.5s;
+}
+
+.menu ul li ul li a {
+	font-size: 13px;
+	padding: 5px 25px 5px 10px;
+	margin-right: 0px;
+	color: #333;
+	background: url(menu_dot.png)  right 8px no-repeat;
+}
+
+.menu ul li a.active,
+.menu ul li a.active:hover,
+.menu ul li a:hover {
+	margin-right: -5px;
+	border-right: 5px solid #f00;
+}
+
+.menu ul li a.active {
+	color: #fff;
+	text-shadow: 0px 1px 2px #600;
+}
+
+
+.menu a:hover,
+.menu a.active{
+	background: #f00;
+	color: #eee;
+	text-shadow: 0 1px 5px #000;
+}
+
+.menu ul li li a.active,
+.menu ul li li a:hover {
+	margin-right: 0px;
+}
+
+.menu ul li ul li a:hover,
+.menu ul li ul li a.active{
+	background: #333 url(menu_dot.png) right -83px  no-repeat;
+	color: #eee;
+	border-right: none;
+}
+
+.menu ul li a:hover {
+	background: #333;
+	color: #fff;
+	text-shadow: 0px 1px 3px #000;
+	border-right: 0;
+	margin-right: 0;
+}
+
+.menu ul li a.active:hover {
+	text-shadow: 0px 1px 3px #000;
+}
+
+.content p.header {
+	color: #666;
+	font-size: 12px;
+	margin: 10px 0 0 0px;
+	padding: 40px 20px 10px 20px;
+	line-height: 15px !important;
+	display: inline-block;
+	width: auto !important;
+	background: url(background-stripes.png); 
+}
+
+.content h2 {
+	font-size: 40px;
+	line-height: 45px;
+	margin: 20px 0 30px 20px;
+	margin-left: 0;
+}
+
+
+
+.content h2 a { color: #333; text-shadow: 0px 1px 0px #fff;
+	background: url(background-stripes.png); 
+	display: table; 
+	padding: 14px 40px 10px 20px; 
+}
+
+.content h2 a:hover { background: #f00 !important; color: #fff; text-shadow: none;}
+
+.content p {margin: 5px 5px 10px 20px;}
+
+
+#home .content p { width: 350px; }
+#home .content { background: url(background-home.png) 260px 160px no-repeat; padding-bottom: 40px; }
+
+#oh404 .content h2 { color: #fff; background: #f00; padding: 10px 10px 10px 20px; margin-left: 0; display: table;}
+#about .content { background: url(background-about.png) 310px 46px no-repeat; padding-bottom: 150px; }
+#about .content p {	width: 350px; font-size: 13px; line-height: 18px; }
+#about .content small { font-size: 11px; color: #666; margin: 0 0 0 20px; width: 350px; display: block; line-height: 13px;}
+#contact .content { background: url(background-contact.png) 270px 190px no-repeat; padding-bottom: 150px; }
+#contact .content span { color: #f00; padding: 0 5px 0 5px;}
+#contact .content p {	width: 350px; font-size: 13px; line-height: 18px; }
+
+#newstuff h3 { margin-left: 20px; font-size: 25px; line-height: 25px; margin-top: 50px; padding: 20px 40px 0px 40px; background: #fff; display: inline; }
+#newstuff .left { width: 400px; float: left; margin-left: 20px; padding: 40px 40px 40px 40px; background: #fff;  border-right: 1px solid #999; border-bottom: 1px solid #999;}
+#newstuff .left p { padding: 0; margin: 0;}
+#newstuff .right { float: left; }
+#newstuff .post { margin: 20px 0 50px 0; clear: both; display: table; }
+#newstuff .box { float: left; padding: 20px 20px 20px 20px; margin: 0 0 10px 0; font-size: 13px;}
+#newstuff .box:hover { background: url(background-stripes.png) 0 0 repeat; }
+#newstuff .box span { font-size: 25px; font-weight: bold;}
+#newstuff .post .text { width: 400px !important; margin: 0px 0 40px 20px; padding: 40px;}
+#newstuff .post #footer {
+	clear: both;
+}
+
+#newstuff .left img {
+	margin-bottom: 20px;
+}
+
+#works .content p { width: 280px; font-size: 13px;}
+#works .listing { float: left; }
+#works .presenter { position: absolute; top: 20px; left: 320px; line-height: 25px; }
+#works .presenter .box { background: #fff; margin: 40px 0 0 0;}
+#works .presenter span { float: right; line-height: 25px; margin: 10px 10px 0 0;}
+#works .presenter h3 {float: left; display: inline; background: #fff; margin: 0; padding: 10px 20px 10px 20px; line-height: 25px; font-size: 25px;}
+
+#works .presenter img { margin: 20px; }
+
+#works .presenter .commenticon { 
+	padding: 2px 10px 2px 10px; 
+	margin: -10px 0 0 0; 
+	float: right; 
+	display: block;
+	line-height: 40px;
+	color: #333;
+	border: 1px solid #efefef;
+}
+
+#works .presenter .commenticon:hover {
+	color: #333;
+	background: #fff;
+}
+#works .presenter .commenticon span { 
+	background: url(icon_comments.png) 0 0 no-repeat;
+	float: left;
+	width: 30px;
+	height: 25px;
+	display: block;
+	color: #fff;
+	text-align: center;	
+	line-height: 22px;
+}
+
+#works .presenter .description {
+	font-size: 12px;
+	padding: 10px 0 0 0px;
+	line-height: 15px;
+	width: 330px;
+}
+
+#works .listing {
+	margin: 0;
+	padding: 0;
+	width: 310px;
+}
+
+#works .listing li { 
+	padding: 0; 
+	margin: 0;
+	list-style-type: none;
+	line-height: 44px;
+	clear: both;
+}
+
+#works .listing li h3 {
+	background: #fff;
+	padding: 10px 20px 10px 20px;
+	font-size: 15px;
+	color: #333;
+	cursor: pointer;
+	display: inline;
+	-webkit-transition-property: background-color;
+	-webkit-transition-duration: 0.5s;
+}
+
+#works .listing li h3.active,
+#works .listing li h3:hover {
+	padding-right: 40px;
+	background: #333 url(open.png) right 16px no-repeat;
+	color: #fff;
+}
+
+#works .listing li h3.active,
+#works .listing li h3.active:hover{
+	background: #333 url(opened.png) right 16px no-repeat;
+}
+
+#works .listing li h3.active {
+	border-right: 5px solid #f00;
+}
+
+#works .listing li li a.active,
+#works .listing li li a:hover {
+	background-image: none;
+	padding-right: 10px;
+}
+
+#works .listing li ul {
+	margin: 0 0 0px 0px;
+	padding: 10px 0 20px 10px;
+	list-style-type: none;
+	display: none;
+}
+	
+#works .listing li li {
+	margin: 0 5px 0 5px;
+	line-height: 25px;
+	padding: 0;
+	display: block;
+	float: left;
+	clear: none;
+}
+
+#works .listing li li a {
+	background: #fff;
+	color: #333;
+	padding: 3px 10px 3px 10px;
+	font-size: 11px;
+	color: #666;
+	-webkit-transition-property: background-color;
+	-webkit-transition-duration: 0.5s;
+}
+
+#works .listing li li a.active,
+#works .listing li li a:hover {
+	background: #333;
+	color: #fff;
+}
+
+#projects .content { background: url(background-projects.png) 400px -20px no-repeat; padding-bottom: 150px; }
+
+#projects h3 { margin: 20px 0 0 20px; }
+
+#projects .bigbox {
+	margin: 10px;
+	width: 350px;
+	float: left;
+	background: url(background-stripes.png);
+}
+
+#projects .box {
+	margin: 10px;
+	padding: 10px;
+	width: auto;
+}
+
+#projects .box ul { display: table;  margin: 0; padding: 0; list-style-type: none;}
+#projects .box ul li {	
+	margin: 0; 
+	list-style-type: none;
+	line-height: 45px;
+	float: left;
+}
+
+#projects .box ul li a { 
+	display: inline; 
+	color: #f00; 
+	padding: 10px 20px 10px 20px;
+	margin: 0 10px 0 0;
+	background: #fff;
+}
+
+
+
+
+
+
+            ol.notes {
+                padding: 0px;
+                margin: 20px 20px;
+                list-style-type: none;
+                border-bottom: solid 1px #ccc;
+                clear: both;
+                background: #fff;
+            }
+
+            ol.notes li.note {
+                border-top: solid 1px #ccc;
+                padding: 10px 10px 10px 20px;
+            }
+
+            ol.notes li.note img.avatar {
+                vertical-align: -4px;
+                margin-right: 10px;
+                width: 16px;
+                height: 16px;
+            }
+
+            ol.notes li.note span.action {
+                font-weight: normal;
+            }
+
+            ol.notes li.note .answer_content {
+                font-weight: normal;
+            }
+
+            ol.notes li.note blockquote {
+                border-color: #eee;
+                padding: 4px 10px;
+                margin: 10px 0px 0px 25px;
+            }
+
+            ol.notes li.note blockquote a {
+                text-decoration: none;
+            }
+            
+            #disqus_thread {
+            background: #fff;
+            width: 500px;
+            padding: 20px;
+            }
+            
+            #disqus_thread h2,
+            #disqus_thread h3,
+            #disqus_thread h4{ font-size: 20px !important; padding: 0;}
+            
+            .footer { font-size: 9px !important; color: #999; padding-top: 20px; margin-top: 20px; clear: both; }
+            .footer p { font-size: 10px !important; }

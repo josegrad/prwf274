@@ -1,0 +1,8 @@
+/* Beton-Bold webfont (new-bulletproof) */ 
+@font-face {
+    font-family: 'Beton-Bold';
+    src: url('Beton-Bold.eot') format('embedded-opentype'),
+         url('Beton-Bold.woff') format('woff'),
+         url('Beton-Bold.ttf')  format('truetype'),
+         url('Beton-Bold.svg') format('svg');
+}
